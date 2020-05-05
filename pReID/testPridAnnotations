@@ -1,0 +1,48 @@
+TEST FOR REID
+* the querys are obtained of PRID2011
+* the gallerys are obtained of cropps generated for OD (los recortes que generamos)
+
+#first test for 10 that are
+
+* ID < 200 ,ID that are in the two cameras and the people are same
+* the tests will be BACK AND FORTH(viceversa), query ID of camA -> search in GALLERY camB
+* the difference is that each ID, will have difference by the camera angle
+
+personID:       sequenciaA:         sequenciaB:
+15              3                   6
+45              32                  31
+66              45                  47
+87              60                  66
+99              65                  69
+100             66                  65
+113             73                  72
+155             102                 104
+169             111                 115
+187             117                 120
+
+#Second test for 10 that aren't
+
+* ID > 200, they are same ID, but different people
+* the tests will be BACK AND FORTH,  query ID of camA -> search in GALLERY camB
+* the difference is that they are the same ID but do not exist in both cameras 
+* the people are different.
+
+personID:
+
+* the 5 first, are the same ID on A and B
+
+215
+245
+266
+287
+299
+
+* the 5 last, aren't the same ID
+
+camA            camB
+
+300             456
+313             555
+355             612
+369             700
+380             745
