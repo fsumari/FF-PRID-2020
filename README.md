@@ -1,13 +1,13 @@
-# Real-World person Re-identification
+# Full-Frame person Re-identification
 
 * This the code for security-level of person Re-identification on real scenarios.
 
 ## part 1. Quick start
 1. Clone this file
 ```bashrc
-$ git clone https://github.com/fsumari/RW-PRID-2020.git
+$ git clone https://github.com/fsumari/FF-PRID-2020.git
 ```
-2.  The code is compatible with Python 3.7. The following dependencies are needed to run the RW-PRID:
+2.  The code is compatible with Python 3.7. The following dependencies are needed to run the FF-PRID:
 
 ```bashrc
 Tensorflow 1.4.0
@@ -33,14 +33,14 @@ $ wget https://drive.google.com/file/d/1pFAIkjLrNB0KeKLWuUlS0hoJIwXR00oV/view?us
 $ unzip weightsReid.zip
 $ cd ..
 ```
-5. Run the simple test for RW-PRID
-* Execute test for standard ReID:
+5. Run the simple test for FF-PRID
+* Execute test for classic ReID:
 ```bashrc
-$ python run.py --mode=classic_test --query_path=querys/person_0015.png --cropps_path=data/seq1/cropps --top=10
+$ python run.py --mode=cl_test --query_path=querys/person_0015.png --cropps_path=data/seq1/cropps --top=10
 ```
-* Execute test for RW ReID:
+* Execute test for FF-PRID:
 ```
-python run.py --mode=rw_test --query_path=querys/person_0015.png --video_path=data/seq1/video_in.avi --top=10
+python run.py --mode=ff_test --query_path=querys/person_0015.png --video_path=data/seq1/video_in.avi --top=10
 ```
 ## part 2. Evaluation
 
@@ -55,20 +55,20 @@ $ cd data
 $ wget link_of_prid2011_videos
 $ wget link_of_prid2011
 ```
-2. Extract into one directory and rename them, after that with script `generateRW-PRID-videos.py` many videos. You have put on the script, the path of `anno_a.mat` and `anno_b.mat`.
+2. Extract into one directory and rename them, after that with script `generateFF-PRID-videos.py` many videos. You have put on the script, the path of `anno_a.mat` and `anno_b.mat`.
 ```bashrc
 $ cd prid2011_videos
-$ python generateRW-PRID-videos.py
+$ python generateFF-PRID-videos.py
 ```
 3. You could generate the splitting the raw videos on sub-videos and ground_truth with `generateGT.py` on `--t_skip=frames` frames for sub-video.
 ```bashrc
-$ python generateGT.py --dataset=path_RW-PRID --anno=path_annotations --t_skip=frames
+$ python generateGT.py --dataset=path_FF-PRID --anno=path_annotations --t_skip=frames
 ```
 4. For our evaluation we had the following basic structure.
 
 ```bashrc
 
-RW-PRID-01     # path:  /home/oliver/dataset/RW-PRID
+FF-PRID    # path:  /home/oliver/dataset/FF-PRID
 ├── A-B
 |    └──000001 #video directory
 |    |   └──person_0017 #query .png
@@ -190,14 +190,14 @@ RW-PRID-01     # path:  /home/oliver/dataset/RW-PRID
 
 * Execute for Dataset:
 
-`python run.py --mode=data --data_dir=data/RW-PRID01 --t_skip= frames`
+`python run.py --mode=data --data_dir=data/FF-PRID01 --t_skip= frames`
 
 * Validation:
 
-`python run.py --mode=val --data_dir=data/RW-PRID01 --p_name=RW-01-predict`
+`python run.py --mode=val --data_dir=data/FF-PRID01 --p_name=RW-01-predict`
 
 * Graphs of metrics
 
-`python run.py --mode=graph --data_dir=data/RW-PRID01 --p_name=RW-01-predict`
+`python run.py --mode=graph --data_dir=data/FF-PRID01 --p_name=RW-01-predict`
 
 
